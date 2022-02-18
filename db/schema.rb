@@ -10,7 +10,23 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema[7.0].define(version: 2022_02_18_045533) do
+ActiveRecord::Schema[7.0].define(version: 2022_02_18_050851) do
+  create_table "pokemon_egg_groups", force: :cascade do |t|
+    t.integer "pokemon_egg_group__id"
+    t.integer "pokemon_id"
+    t.integer "egg_group_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "pokemon_types", force: :cascade do |t|
+    t.integer "pokemon_type_id"
+    t.integer "pokemon_id"
+    t.integer "type_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
   create_table "pokemons", force: :cascade do |t|
     t.integer "pokemon_id"
     t.integer "number"
