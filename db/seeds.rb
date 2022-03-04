@@ -36,4 +36,12 @@ pokemon["results"].each do |result|
     name:   pokemon_json["name"].capitalize,
     sprite: pokemon_json["sprites"]["front_default"]
   )
+
+  pokemon_json["types"].each do |type|
+    type_name = type["type"]["name"].capitalize
+    PokemonType.create(
+      pokemon: Pokemon.find_by(number: pokemon_json["id"]),
+      type:    Type.find_or_create_by(name: type_name)
+    )
+  end
 end
