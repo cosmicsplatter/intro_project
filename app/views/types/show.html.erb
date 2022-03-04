@@ -1,0 +1,8 @@
+<h1><%=@type.name%></h1>
+
+<ul>
+  <% @type.pokemon.each do |pokemon| %>
+    <h3><%=pokemon.name%></h3>
+    <%=link_to image_tag(pokemon.sprite, :alt=>pokemon.name), pokemon%>
+  <% end %>
+</ul>

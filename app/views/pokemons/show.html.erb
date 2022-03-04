@@ -1,0 +1,13 @@
+<h1><%=@pokemon.name%></h1>
+<%=image_tag(@pokemon.sprite, :alt=>@pokemon.name)%>
+
+<h3>Types</h3>
+<% @pokemon.type.each do |type|%>
+  <p><%=link_to type.name, type%></p>
+<% end %>
+
+<h3>Egg Types</h3>
+<% @pokemon.egg_group.each do |egg_group|%>
+  <p><%=link_to egg_group.name, egg_group%></p>
+<% end %>
+
