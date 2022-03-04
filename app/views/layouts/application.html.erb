@@ -10,7 +10,23 @@
     <%= javascript_importmap_tags %>
   </head>
 
+
   <body>
+
+    <div class="navbar">
+      <ul>
+        <li><%= link_to "Pokemon", root_path %></li>
+        <li><%= link_to "Types", types_path %></li>
+        <li><%= link_to "Egg Groups", egg_groups_path %></li>
+        <li><a href="about.asp">About</a></li>
+      </ul>
+    </div>
+    <div>
+      <%=form_tag(@pokemon, method: :get, :id => "form") do%>
+        <%=text_field_tag(:search, params[:search])%>
+        <%=submit_tag ("Search"), :id => "search"%>
+      <%end%>
+    </div>
     <%= yield %>
   </body>
 </html>
