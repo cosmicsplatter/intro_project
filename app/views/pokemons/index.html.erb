@@ -4,3 +4,5 @@
   <h3><%=pokemon.name%></h3>
   <%=link_to image_tag(pokemon.sprite, :alt=>pokemon.name), pokemon%>
 <% end %>
+
+<%= paginate @pokemons %>

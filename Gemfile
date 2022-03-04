@@ -31,6 +31,7 @@ gem "jbuilder"
 
 gem "database_cleaner"
 gem "net-http"
+gem 'kaminari', '~> 0.17.0'
 
 # Use Redis adapter to run Action Cable in production
 # gem "redis", "~> 4.0"

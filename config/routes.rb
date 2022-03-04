@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   resources :pokemons
   resources :egg_groups
   resources :types
+
+  get "about", to: "about#index"
   # Defines the root path route ("/")
   # root "articles#index"
 end
