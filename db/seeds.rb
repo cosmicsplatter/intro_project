@@ -19,28 +19,21 @@ DatabaseCleaner.clean_with(:truncation)
 require "net/http"
 require "json"
 
-pokemon_array = []
-# species_array = []
-# type_array = []
-# egg_group_array = []
-
-(1..151).each do |i|
-  pokemon_data = "https://pokeapi.co/api/v2/pokemon/#{i}"
-  uri = URI(pokemon_data)
+def fetch(url)
+  uri = URI(url)
   response = Net::HTTP.get(uri)
-  pokemon_json = JSON.parse(response)
-  pokemon_array.push(pokemon_json)
-
-  # species = open("https://pokeapi.co/api/v2/pokemon-species/#{i}").read
-  # json_species = JSON.parse(species)
-  # species_array.push(json_species)
+  JSON.parse(response)
 end
 
-pokemon_array.each do |pokemon|
+pokemon = fetch("https://pokeapi.co/api/v2/pokemon?limit=151") # 898
+
+pokemon["results"].each do |result|
+  pokemon_json = fetch(result["url"])
+  species_json = fetch(pokemon_json["species"]["url"])
+
   Pokemon.create(
-    pokemon_id: pokemon["id"],
-    number:     pokemon["id"],
-    name:       pokemon["name"],
-    sprite:     pokemon["sprites"]["front_default"]
+    number: pokemon_json["id"],
+    name:   pokemon_json["name"].capitalize,
+    sprite: pokemon_json["sprites"]["front_default"]
   )
 end
