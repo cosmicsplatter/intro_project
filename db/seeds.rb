@@ -25,7 +25,7 @@ def fetch(url)
   JSON.parse(response)
 end
 
-pokemon = fetch("https://pokeapi.co/api/v2/pokemon?limit=151") # 898
+pokemon = fetch("https://pokeapi.co/api/v2/pokemon?limit=898") # 898
 
 pokemon["results"].each do |result|
   pokemon_json = fetch(result["url"])
