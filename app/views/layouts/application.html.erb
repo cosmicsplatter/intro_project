@@ -24,7 +24,7 @@
     <div>
       <%=form_tag(@pokemon, method: :get, :id => "form") do%>
         <%=text_field_tag(:search, params[:search])%>
-        <%=submit_tag ("Search"), :id => "search"%>
+        <%=submit_tag ("Search"), :id => "commit"%>
       <%end%>
     </div>
     <%= yield %>
