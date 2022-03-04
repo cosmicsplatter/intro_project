@@ -3,6 +3,15 @@ body{
   margin: none;
   background-color: #777;
 }
+ul{
+  margin: 0 auto;
+  text-align: center;
+}
+
+li{
+  display: inline-block;
+  vertical-align: top;
+}
 
 .navbar{
   width: 100%;
