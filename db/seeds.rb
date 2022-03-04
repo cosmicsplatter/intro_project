@@ -44,4 +44,11 @@ pokemon["results"].each do |result|
       type:    Type.find_or_create_by(name: type_name)
     )
   end
+
+  species_json["egg_groups"].each do |egg_group|
+    PokemonEggGroup.create(
+      pokemon:   Pokemon.find_by(number: pokemon_json["id"]),
+      egg_group: EggGroup.find_or_create_by(name: egg_group["name"].capitalize)
+    )
+  end
 end
